@@ -1,0 +1,13 @@
+<div class="flex flex--row u-pv ">
+  <div *ngFor="let i of starNumber" class="u-pr-">
+    <mat-icon
+      [ngClass]="{
+        'flex__item--top': true,
+        'material-icons-outlined': i > rate
+      }"
+      [attr.id]="'star' + i"
+      (click)="updateRate(i)"
+      >stars</mat-icon
+    >
+  </div>
+</div>

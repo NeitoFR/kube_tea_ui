@@ -1,11 +1,8 @@
 import { Component } from "@angular/core";
+import { TeaService } from "./services/tea.service";
+import { ToastrService } from "./services/toastr.service";
+import { ITea } from "./interfaces/tea.model";
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -13,8 +10,35 @@ export interface Tile {
 })
 export class AppComponent {
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    console.log("Hello");
+    // this.teaService.fillTeaList();
+    this.updateTeaList();
+  }
+
+  teaList: ITea[];
+
+  constructor(private teaService: TeaService, private toastr: ToastrService) {
+    teaService.updateTeaList$.subscribe(() => {
+      toastr.info("Updating tea list...");
+      this.updateTeaList();
+    });
+  }
+  handleAddTeaEvent(stuff: any) {
+    this.toastr.success("Event emitted");
+    this.teaService
+      .addTea(stuff)
+      .then(res => {
+        this.updateTeaList();
+      })
+      .catch(err => {
+        this.toastr.error("Error adding tea");
+        console.log("Error addind tea", err);
+      });
+  }
+  updateTeaList(): void {
+    console.log("Updating tea list");
+
+    this.teaService.getTeas().subscribe(teas => {
+      this.teaList = teas;
+    });
   }
 }

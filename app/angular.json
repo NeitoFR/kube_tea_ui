@@ -19,11 +19,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/sass/styles.scss"],
+            "styles": [
+              "src/sass/styles.scss",
+              "node_modules/toastr/build/toastr.min.css"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["./bower_components"]
             },
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/toastr/build/toastr.min.js"
+            ]
           },
           "configurations": {
             "production": {

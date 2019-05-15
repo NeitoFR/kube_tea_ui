@@ -1,0 +1,56 @@
+<mat-card class="form-card flex flex--col u-1/1">
+  <mat-card-header class="mat-card-header">
+    Tea Adding Form
+  </mat-card-header>
+  <form
+    #addTeaForm="ngForm"
+    class="flex__item flex flex--col"
+    (ngSubmit)="addTea(addTeaForm.value)"
+  >
+    <mat-form-field class="flex__item">
+      <input
+        matInput
+        placeholder="Tea Name"
+        (ngModel)="(nameInput)"
+        type="text"
+        id="nameInput"
+        name="nameInput"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="flex__item">
+      <input
+        matInput
+        placeholder="Tea Flavor"
+        (ngModel)="(flavorInput)"
+        type="text"
+        id="flavorInput"
+        name="flavorInput"
+        required
+      />
+    </mat-form-field>
+    <app-star-rate
+      class="flex__item"
+      highestRate="5"
+      (hasRated)="updateRate($event)"
+    ></app-star-rate>
+    <input
+      [(ngModel)]="rateInput"
+      type="hidden"
+      id="rateInput"
+      name="rateInput"
+      required
+    />
+
+    <button
+      mat-flat-button
+      color="primary"
+      class="flex__item--middle u-1/3"
+      type="submit"
+      [disabled]="addTeaForm.invalid"
+    >
+      Add Tea
+    </button>
+  </form>
+</mat-card>
