@@ -1,3 +1,9 @@
-<mat-toolbar color="primary">
-  <span>Kubernetes Hosted Angular 6 UI</span>
+<mat-toolbar color="primary" class="flex flex--row">
+  <span class="flex__item flex__item">Kubernetes Hosted Angular 6 UI</span>
+  <span>
+    <button mat-raised-button color="basic" class="flex__item--bottom u-m" style="font-size: 20px;" (click)="teaService.fillTeaList()">
+      Fill mock data
+    </button>
+
+  </span>
 </mat-toolbar>

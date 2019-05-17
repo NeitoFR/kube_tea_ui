@@ -1,8 +1,10 @@
-<div class="wrapper flex flex--col u-p">
-  <span class="flex__item text--center u-mv gamma">List of Tea</span>
+<mat-card class="form-card flex flex--col u-1/1">
+  <mat-card-header class="mat-card-header">
+    List of Tea
+  </mat-card-header>
   <tea-details
     *ngFor="let tea of teaList"
     [tea]="tea"
     class="flex__item u-m"
   ></tea-details>
-</div>
+</mat-card>

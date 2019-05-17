@@ -1,7 +1,15 @@
 <div class="flex flex--row flex__item">
-    <span class="flex__item">Tea Name : {{ tea.teaName}}</span>
-    <span class="flex__item">Tea Flavor : {{ tea.teaFlavor }}</span>
-    <span class="flex__item">Tea Rate : {{ tea.teaRate }}</span>
-    <!-- <button class="btn flex__item--middle " type="button" (click)=logStuff()>Test</button> -->
-    <button class="btn flex__item--middle " type="button" (click)="onDelete(tea.teaName)">DELETE</button>
+  <span class="flex__item">Tea Name : {{ tea.teaName }}</span>
+  <span class="flex__item">Tea Flavor : {{ tea.teaFlavor }}</span>
+  <span class="flex__item">Tea Rate : {{ tea.teaRate }}</span>
+  <!-- <button class="btn flex__item--middle " type="button" (click)=logStuff()>Test</button> -->
+  <button
+    mat-flat-button
+    color="warn"
+    class="btn flex__item--middle "
+    type="button"
+    (click)="onDelete(tea.teaName)"
+  >
+    DELETE
+  </button>
 </div>

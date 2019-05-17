@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { TeaService } from "src/app/services/tea.service";
 
 @Component({
   selector: "app-main-toolbar",
@@ -6,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./main-toolbar.component.scss"]
 })
 export class MainToolbarComponent implements OnInit {
-  constructor() {}
+  constructor(public teaService: TeaService) {}
 
   ngOnInit() {}
 }
